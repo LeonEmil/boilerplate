@@ -1,0 +1,26 @@
+{
+  "name": "boilerplate",
+  "version": "1.0.0",
+  "description": "Boilerplate de desarrollo frontend utilizando pug, sass y babel",
+  "main": "package.json",
+  "scripts": {
+    "sass": "node-sass --watch ./dev/sass -o ./public/ --output-style expanded",
+    "pug": "pug --watch -P ./dev/pug/pages -o ./public/",
+    "babel": "babel -w ./dev/js/*.js -d ./public/",
+    "stack": "parallelshell \"npm run sass\" \"npm run pug\" \"npm run babel\"",
+    "server": "browser-sync start --server --files public --serveStatic public reload-delay=300 reload-debounce=500",
+    "dev": "parallelshell \"npm run stack\" \"npm run server\"",
+    "start": "npm run dev"
+  },
+  "author": "Leon Emil <LeonEmilioBernal@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "browser-sync": "^2.26.7",
+    "node-sass": "^4.13.0",
+    "parallelshell": "^3.0.2",
+    "pug-cli": "^1.0.0-alpha6"
+  }
+}
